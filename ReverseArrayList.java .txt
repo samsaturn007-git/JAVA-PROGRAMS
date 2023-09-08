@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ReverseArrayList {
+    public static void main(String[] args) {
+        // Create an ArrayList of integers
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        // Print the original ArrayList
+        System.out.println("Original ArrayList: " + numbers);
+
+        // Reverse the ArrayList using a custom function
+        reverseArrayList(numbers);
+
+        // Print the reversed ArrayList
+        System.out.println("Reversed ArrayList: " + numbers);
+    }
+
+    // Custom function to reverse an ArrayList
+    public static <T> void reverseArrayList(ArrayList<T> list) {
+        int size = list.size();
+        for (int i = 0; i < size / 2; i++) {
+            T temp = list.get(i);
+            list.set(i, list.get(size - 1 - i));
+            list.set(size - 1 - i, temp);
+        }
+    }
+}
